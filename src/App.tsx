@@ -40,18 +40,6 @@ export class App extends React.Component<{}, State> {
     }, 3300);
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<{}>,
-    prevState: Readonly<State>,
-  ): void {
-    if (prevState.clockName !== this.state.clockName) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `Renamed from ${prevState.clockName} to ${this.state.clockName}`,
-      );
-    }
-  }
-
   componentWillUnmount(): void {
     document.removeEventListener('click', this.handleDocumentLeftClick);
     document.removeEventListener('contextmenu', this.handleDocumentRigthClick);

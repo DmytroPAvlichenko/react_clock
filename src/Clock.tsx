@@ -31,6 +31,13 @@ export class Clock extends React.Component<Props, State> {
     window.clearInterval(this.timerId);
   }
 
+  componentDidUpdate(prevProps: Readonly<Props>): void {
+    if (prevProps.name !== this.props.name) {
+      // eslint-disable-next-line no-console
+      console.warn(`Renamed from ${prevProps.name} to ${this.props.name}`);
+    }
+  }
+
   render() {
     const { name } = this.props;
 
